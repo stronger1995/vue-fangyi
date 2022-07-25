@@ -106,6 +106,16 @@
 </template>
 
 <script>
+import axios from 'axios'
+// axios.interceptors.request.use(config=> {
+//   var token = window.localStorage.getItem('token');
+//   if (token && token.startsWith("Bearer_")) {
+//     config.headers.Authorization = token;
+//   }
+//   return config;
+// }, err=> {
+// })
+
   export default {
     data() {
       return {
@@ -156,6 +166,19 @@
             'time': '2022-7-17 15:00'
         }]
       }
+    },
+    mounted () {
+      axios({
+        method: 'get',
+        url: '/hello',
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8'
+        },
+      }).then(data => {
+        console.log(data)
+      })
+
+
     },
     methods: {
       onSubmit() {

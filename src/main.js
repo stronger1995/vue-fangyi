@@ -20,9 +20,6 @@ import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
 
-// import BaiduMap from 'vue-baidu-map'
-
-// Vue.use(BaiduMap, { ak: 'ZNzXLY5wzIaeGuRv7oPHnRf2Ayuk04TX' })
 
 // 引入百度地图（不用再到html中导入）
  
@@ -33,6 +30,15 @@ VueBMap.initBMapApiLoader({
   ak: 'ZNzXLY5wzIaeGuRv7oPHnRf2Ayuk04TX',
   v: '1.0'
 })
+
+
+// 引入 axios
+import axios from 'axios'
+ 
+// 配置baseURL
+axios.defaults.baseURL = '/dev-api'
+ 
+Vue.prototype.$http = axios
 
 
 /**
@@ -50,7 +56,7 @@ if (process.env.NODE_ENV === 'production') {
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium', // set element-ui default size
-  locale: enLang // 如果使用中文，无需设置，请删除
+  // locale: enLang // 如果使用中文，无需设置，请删除
 })
 
 // register global utility filters
