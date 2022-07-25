@@ -46,25 +46,43 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/demo01',
+    redirect: '/test02',
     children: [
+      {
+        path: 'test02',
+        component: () => import('@/views/demo02/test02'),
+        name: '疫情地图',
+        meta: { title: '疫情地图', icon: 'chart', affix: true }
+      },
+      {
+        path: 'test03',
+        component: () => import('@/views/demo03/test03'),
+        name: '个人信息列表',
+        meta: { title: '个人信息列表', icon: 'list', affix: true }
+      },
+      {
+        path: 'test04',
+        component: () => import('@/views/demo03/test04'),
+        name: '个人信息详情',
+        meta: { title: '个人信息详情', icon: 'form', affix: true }
+      },
       {
         path: 'demo01',
         component: () => import('@/views/demo01/test01'),
         name: '轨迹恢复-01',
-        meta: { title: '轨迹恢复-01', icon: 'dashboard', affix: true }
+        meta: { title: '轨迹恢复-01', icon: 'guide', affix: true }
       },
       {
         path: 'demo02',
         component: () => import('@/views/demo01/test02'),
         name: '轨迹恢复-02',
-        meta: { title: '轨迹恢复-02', icon: 'dashboard', affix: true }
+        meta: { title: '轨迹恢复-02', icon: 'guide', affix: true }
       },
       {
         path: 'demo03',
         component: () => import('@/views/demo01/test03'),
         name: '轨迹恢复-03',
-        meta: { title: '轨迹恢复-03', icon: 'dashboard', affix: true }
+        meta: { title: '轨迹恢复-03', icon: 'guide', affix: true }
       }
     ]
   }
